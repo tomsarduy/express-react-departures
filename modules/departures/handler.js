@@ -23,7 +23,7 @@ function fetchDepartures(req, res, next) {
 
 	// fetch realtime api using request-promise
 	const options = {
-		uri: 'https://realtime.thetrainline.com/departures/'+ req.station.crs,
+		uri: 'https://realtime.thetrainline.com/departures/'+ req.station.crs+ '?ExpectedWindow=120',
 		// parse the response using custom parser
 		transform: (data) => parser.trainServicesParser(data, req.station),
 		json: true

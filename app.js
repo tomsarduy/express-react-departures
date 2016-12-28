@@ -8,6 +8,7 @@ var index = require('./routes/index');
 
 // Departures router
 var departures = require('./modules/departures/');
+var services = require('./modules/services/');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/api/departures', departures);
+app.use('/api/services', services);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

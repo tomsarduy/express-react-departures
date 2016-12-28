@@ -105,7 +105,7 @@ const serviceDetailsParser = (data) => {
 }
 
 const trainServicesParser = (data, origin) => {
-
+	
 	const services = data.services
 		.filter(
 			// Remove Bus departures from the list
@@ -123,6 +123,7 @@ const trainServicesParser = (data, origin) => {
 				const platform = _.get(service, 'realTimeUpdatesInfo.realTimeServiceInfo.realTimePlatform', '-');
 
 				const serviceId = service.callingPatternUrl && service.callingPatternUrl.split('/')[4];
+				const date = service.callingPatternUrl && service.callingPatternUrl.split('/')[5];
 
 				const status = getServiceStatus(service);
 
@@ -131,6 +132,7 @@ const trainServicesParser = (data, origin) => {
 					due,
 					platform,
 					operator: operators.getOperatorName(service.serviceOperator),
+					date,
 					serviceId,
 					status
 				}
