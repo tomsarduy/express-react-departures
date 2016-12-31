@@ -1,0 +1,59 @@
+.app {
+	font-size: 16px;
+	font-family: "Roboto", "Helvetica Neue", Helvetica,Arial,sans-serif;
+	min-height: 100vh;
+	background-color: #f4f4f4;
+}
+
+
+.route-enter {
+	opacity: 0.01;
+	position: absolute;
+	top: 0;
+	left: 15px;
+	right: 15px;
+
+	&.route-enter-active {
+		transition: opacity .5s ease-in;
+		opacity: 1;
+	}
+}
+
+.route-leave {
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	left: 15px;
+	right: 15px;
+
+	&.route-leave-active {
+		opacity: 0;
+		transition: opacity .5s ease-in;
+	}
+}
+
+.spinner {
+	width: 20px;
+	height: 20px;
+	background-color: #48d5b5;
+	border-radius: 100%;  
+	margin: 25px auto;
+	animation: sk-scaleout 1.0s infinite ease-in-out;
+	position: absolute;
+
+}
+
+@keyframes sk-scaleout {
+	0% {
+		transform: translateX(0);
+	}
+
+	50%{
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(0);
+		
+	}
+}

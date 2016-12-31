@@ -1,0 +1,25 @@
+.search-departures{
+	padding: 15px;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 15px;
+
+    &__title{
+    	font-size: 18px;
+    	margin-top: 0;
+    }
+}
+
+.btn--search-departures{
+	margin-top: 15px;
+	color: #fff;
+    background-color: #48d5b5;
+    border-color: #33d0ad;
+    transition: .4s background;
+
+    &:hover, &:active, &:focus {
+    	background-color: #40bfa2;
+		color: #fff;
+    	border-color: #40bfa2;
+    }
+}
