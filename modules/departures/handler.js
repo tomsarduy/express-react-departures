@@ -47,9 +47,14 @@ function getDepartures(req, res, next) {
 	});
 }
 
+function getStations(req, res, next) {
+
+	res.json(stations.stationsList);
+}
 
 module.exports = {
 	checkStationCode,
 	fetchDepartures,
-	getDepartures
+	getDepartures,
+	getStations
 };
