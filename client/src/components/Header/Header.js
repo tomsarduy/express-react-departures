@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo-trainline.svg';
 import './Header.scss';
 
-const Header = () =>
+export default () =>
 (
     <div className="app-header"> 
         <div className="container">
@@ -10,5 +10,3 @@ const Header = () =>
         </div>
     </div>
 );
-
-export default Header;
