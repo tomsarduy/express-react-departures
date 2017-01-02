@@ -1,16 +1,9 @@
 import React from 'react';
-import {createStore, applyMiddleware} from 'redux';
-import {apiMiddleware} from 'redux-api-middleware';
-import createLogger from 'redux-logger';
-
+import store from '../configureStore';
 import { shallow } from 'enzyme';
-import reducers from '../reducers';
 import AppRouter from  './index';
 
-const logger = createLogger();
-
 describe('App Router', () => {
-	const store = createStore(reducers, applyMiddleware(apiMiddleware, logger));
 	const router = shallow(<AppRouter store={store}/>);
 	
 	it('should render without crashing', () => {
