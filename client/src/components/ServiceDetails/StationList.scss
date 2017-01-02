@@ -1,0 +1,16 @@
+.station-list{
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 5px;
+
+	// Normally I would use mq mixins using bootstrap breakpoints variables
+	@media screen and (min-width: 768px) {
+		max-height: 80vh;
+		overflow-y: auto;
+	}
+	
+	ul{
+		padding: 0;
+		list-style: none;
+	}
+}

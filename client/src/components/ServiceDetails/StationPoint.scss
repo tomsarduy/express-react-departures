@@ -1,0 +1,120 @@
+
+@mixin train-icon($top, $left){
+	border: 1px solid #48d5b5;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #48d5b5 url('train-icon.svg') no-repeat;
+    background-size: 77%;
+    background-position: 50%;
+    top: $top;
+    left: $left;
+}
+
+.station-point {
+    position: relative;
+    display: block;
+    padding: 0;
+    padding-left: 90px;
+    background-color: white;
+	
+	// rail line in the left
+    &__line{
+    	position: relative;
+    	&:before{
+    		content: "";
+		    position: absolute;
+		    left: -22px;
+		    width: 2px;
+		    background-color: #ccc;
+		    height: 100%;
+    	}
+    }
+
+	&__due {
+	    font-size: 18px;
+	    font-weight: bold;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	}
+
+	&__name {
+	    display: block;
+		font-size: 16px;
+	}
+
+	// Station point circle
+	&__circle {
+
+		position: relative;
+
+		// Default white point
+    	&:before {
+    		content: "";
+		    position: absolute;
+		    left: -27px;
+		    border-radius: 50%;
+		    border: 1px solid #999;
+		    width: 12px;
+		    height: 12px;
+		    background-color: white;
+		    top: 5px;
+    	}
+		
+		// Station point black when is origin or destination
+    	&--black {
+			&:before {
+				left: -30px;
+			    border: 1px solid black;
+			    width: 19px;
+			    height: 19px;
+			    background-color: black;
+			    top: 2px;
+			}
+    	}
+	}
+	
+	&__status {
+	    color: #8c9190;
+		display: inline-block;
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+
+	// MODIFIERS
+	
+	&--departed {
+		color: gray;
+	}
+
+	&--from {
+    	font-weight: bold;
+	}
+	
+	// When train is in the station
+	&--current{
+
+		// Show the train icon
+		.station-point__circle{
+			&:before{
+			   	@include train-icon(0,-36px)
+	    	}
+		}
+	}
+
+}
+
+// When train is in the middle between 2 stations
+.station-point--departed + .station-point:not(.station-point--departed):not(.station-point--current){
+
+		.station-point__circle {
+
+			// In this case we need to create another element
+			&:after{
+				content: "";
+			    position: absolute;
+			    @include train-icon(-31px,-36px);
+	    	}
+		}
+}

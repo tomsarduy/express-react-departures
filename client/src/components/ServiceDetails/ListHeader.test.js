@@ -26,7 +26,7 @@ describe('ListHeader', () => {
 		expect(header.find('.list-header').length).toBe(1);
 	})
 
-	it('Should link to service list', () => {
+	it('Should link back to service list', () => {
 		expect(header.find(Link).prop('to')).toBe("/BFR");
 	})
 })
