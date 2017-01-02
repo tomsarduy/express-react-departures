@@ -11,6 +11,10 @@ const ServiceItem = (props) => {
 		'service-item__status--cancelled': 	props.status === 'Cancelled',
 	});
 
+	const abbr = ((/^([01]\d|2[0-3]):?([0-5]\d)$/).test(props.status))? 
+				<abbr title="Expected At">Exp.</abbr> 
+				:null;
+
     return (
     	<Link 
     		to={`/${props.from}/${props.serviceId}/${props.date}`}
@@ -27,12 +31,7 @@ const ServiceItem = (props) => {
 		    	<div className="service">
 			    	<span className="service-item__subtitle">{props.operator}</span>
 			    	<span className={`service-item__status ${classes}`}>
-				    	{ 
-				    		(props.status !== 'On time' 
-				    			&& props.status !== 'Cancelled' 
-				    			&& props.status !== 'Delayed') 
-				    			&& <abbr title="Expected At">Exp.</abbr> 
-				    	}
+				    	{abbr}
 		    			{props.status}
 			    	</span>
 		    	</div>

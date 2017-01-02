@@ -9,7 +9,7 @@ function setup(type='onTime') {
 		cancelled: {"destination":"Llandovery","due":"6:12","platform":"-","operator":"Arriva Trains Wales","date":"2017-01-02","serviceId":"P72216","status":"Cancelled"},
 		onTime: {"destination":"Haslemere","due":"5:00","platform":"12A","operator":"South West Trains","date":"2017-01-02","serviceId":"Q25042","status":"On time"},
 		delayed: {"destination":"Haslemere","due":"5:00","platform":"-","operator":"South West Trains","date":"2017-01-02","serviceId":"Q25042","status":"Delayed"},
-		expectedAt: {"destination":"Haslemere","due":"5:00","platform":"-","operator":"South West Trains","date":"2017-01-02","serviceId":"Q25042","status":"4:55"}
+		expectedAt: {"destination":"Haslemere","due":"5:00","platform":"-","operator":"South West Trains","date":"2017-01-02","serviceId":"Q25042","status":"04:55"}
 	}
 
 	const props = serviceMocks[type];
@@ -73,8 +73,9 @@ describe('Components', () => {
 
 		it('should show <abbr> and conditional classes when estimate time provided', () => {
 			const {enzymeWrapper} = setup('expectedAt');
-			expect(enzymeWrapper.find('.service-item__status').text()).toBe('Exp.4:55');
-			expect(enzymeWrapper.find('.service-item__status > abbr').length).toBe(1);
+			expect(enzymeWrapper.find('.service-item__status').text()).toBe('Exp.04:55');
+			expect(enzymeWrapper.find('abbr').length).toBe(1);
+			expect(enzymeWrapper.find('abbr').text()).toBe('Exp.');
 		})
 
 	})
