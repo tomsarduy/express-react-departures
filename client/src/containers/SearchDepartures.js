@@ -16,7 +16,7 @@ const mapStateToProps = (state, props) => {
 }
 
 
-class SearchDepartures extends Component {
+export class SearchDepartures extends Component {
 
 	componentDidMount() {
 		this.props.LoadStations();
@@ -35,6 +35,15 @@ class SearchDepartures extends Component {
 		return <DepartureSelect {...this.props} />
 	}
 }
+
+
+SearchDepartures.propTypes = {
+  LoadStations: React.PropTypes.func.isRequired,
+  stations: React.PropTypes.array,
+  showSpinner: React.PropTypes.bool,
+  error: React.PropTypes.bool,
+  errorMessage: React.PropTypes.string,
+};
 
 export default connect(
 	mapStateToProps,
