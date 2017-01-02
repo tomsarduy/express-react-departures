@@ -1,0 +1,12 @@
+.departures-list {
+	border-radius: 5px;
+	font-size: 14px;
+	list-style: none;
+	padding: 0;
+
+	// Normally I would use mq mixins using bootstrap breakpoints variables
+	@media screen and (min-width: 768px) {
+		max-height: 80vh;
+		overflow-y: auto;
+	}
+}

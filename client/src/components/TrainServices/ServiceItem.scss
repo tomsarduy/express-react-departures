@@ -1,0 +1,93 @@
+.service-item {
+	font-size: 16px;
+	display: block;
+    padding: 15px;
+    padding-left: 70px;
+    padding-right: 35px;
+	position: relative;
+	background-color: white;
+	border-bottom: 1px solid #eee;
+	
+	&__arrow{
+		position: absolute;
+	    right: 10px; 
+	    top: 50%;
+	    transform: translateY(-50%);
+	    font-size: 18px;
+	    color: #2e2975;
+	}
+
+	&__due {
+		font-size: 18px;
+	    font-weight: bold;
+	    position: absolute;
+	    left: 15px;
+	    top: 15px;
+	}
+
+	&__title {
+	    display: block;
+	    padding-right: 60px;
+	}
+
+	&__subtitle {
+	    color: #8c9190;
+
+	    //So it will fit in iPhone 5
+        max-width: 120px;
+        @media screen and (min-width: 375px){
+        	max-width: 160px;
+        }
+        
+        font-size: 14px;
+		display: inline-block;
+	}
+
+	&__platform {
+		position: absolute;
+	    right: 35px;
+    	top: 17px;
+		font-size: 14px;
+		abbr{
+			border-bottom: none;
+		}
+	}
+
+	&__status {
+		float: right;
+		font-size: 14px;
+		color: red;
+		font-weight: bold;
+
+		&--on-time{
+			font-weight: normal;
+			color: green;
+		}
+
+	}
+}
+
+a.service-item {
+	color: #333;
+	display: block;
+	transition: background-color .3s;
+
+	&--selected {
+		&:before{
+			content: "";
+			width: 5px;
+			background-color: #004a73;
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	&:focus, &:hover, &--selected {
+		text-decoration: none;
+		background-color: #d1f4ec;
+	}
+}
+
+
