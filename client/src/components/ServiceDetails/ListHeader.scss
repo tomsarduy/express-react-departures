@@ -1,0 +1,54 @@
+.list-header {
+	margin-bottom: 15px;
+	position: relative;
+
+	&__icon {
+	    max-width: 50px;
+	    position: absolute;
+		top: 3px;
+	    left: -5px;
+	}
+	
+	&__title{
+	    font-size: 18px;
+	    font-weight: 700;
+	    margin: 0;
+	    padding-left: 65px;
+    	padding-right: 35px;
+
+		&--gray{
+			color: #bbb;
+			font-weight: 400;
+		}
+	}
+	
+	&__subtitle{
+		color: #8c9190;
+		font-size: 14px;
+		display: block;
+		margin-top: 5px;
+	}
+	
+	// Modifier to include back/close icon
+	&--closeble {
+		.icon-close{
+			position: absolute;
+		    right: 0;
+		    top: 0;
+		    font-size: 20px;
+		    padding: 7px;
+		    background: #48d5b5;
+		    border-radius: 50%;
+		    color: white;
+		    transition: background-color .3s;
+
+		    &:hover, &:active{
+		    	color: white;
+		    	text-decoration: none;
+		    	background-color: #28826d;
+		    }
+		}	
+	}
+}
+
+
