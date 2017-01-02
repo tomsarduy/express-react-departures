@@ -5,7 +5,7 @@ const ErrorMessage = ({message}) =>
 	<div className="alert alert-danger text-center" role="alert">{message}</div>
 
 ErrorMessage.propTypes = {
-	message: React.PropTypes.string
+	message: React.PropTypes.string.isRequired
 }
 
 export default ErrorMessage;

@@ -1,8 +1,9 @@
 import * as actionTypes from '../constants/actionTypes';
 import {selectStation} from './index';
 
-describe('actions', () => {
-	it('should select a station on click', () => {
+describe('Actions', () => {
+
+	it('should select a station', () => {
 
 		const station = {
 			value: 'WAT',
@@ -16,4 +17,5 @@ describe('actions', () => {
 
 		expect(selectStation(station)).toEqual(expectedAction)
 	})
+	
 })
