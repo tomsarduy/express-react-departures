@@ -28,7 +28,6 @@ export default (state = {}, action) => {
 				selected: action.station
 			}
 		case actionTypes.FETCH_DEPARTURES:
-			console.log(action);
 			return {
 				...state, 
 				selected: action.payload
