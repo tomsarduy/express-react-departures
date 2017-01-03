@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import StationPoint from  './StationPoint';
 import React from 'react';
 
@@ -17,7 +17,7 @@ describe('Components', () => {
 			from: 'LCG'
 		};
 
-		let stationPoint = mount(<StationPoint {...props} />);
+		let stationPoint = shallow(<StationPoint {...props} />);
 		
 		it('should render without crashing', () => {
 			expect(stationPoint.length).toBe(1);
@@ -25,39 +25,39 @@ describe('Components', () => {
 		})
 		
 		it('should show Departed At abbr if estimatedAt has time format and train departed', () => {
-			stationPoint = mount(<StationPoint {...props} estimatedAt="15:51" hasDeparted={true}/>);
+			stationPoint = shallow(<StationPoint {...props} estimatedAt="15:51" hasDeparted={true}/>);
 			expect(stationPoint.find('abbr').length).toBe(1);
 			expect(stationPoint.find('abbr').text()).toBe('Dep.');
 		})
 		
 		it('should show Expected At abbr if estimatedAt has time format and train has not departed', () => {
-			stationPoint = mount(<StationPoint {...props} estimatedAt="15:51" hasDeparted={false}/>);
+			stationPoint = shallow(<StationPoint {...props} estimatedAt="15:51" hasDeparted={false}/>);
 			expect(stationPoint.find('abbr').length).toBe(1);
 			expect(stationPoint.find('abbr').text()).toBe('Exp.');
 		})
 
 		it('css classes should reflect train status', () => {
-			stationPoint = mount(<StationPoint {...props} estimatedAt="15:51" hasArrived={true} hasDeparted={false}/>);
+			stationPoint = shallow(<StationPoint {...props} estimatedAt="15:51" hasArrived={true} hasDeparted={false}/>);
 			expect(stationPoint.find('.station-point').hasClass('station-point--current')).toBe(true);
 
-			stationPoint = mount(<StationPoint {...props} hasArrived={true} hasDeparted={true} />);
+			stationPoint = shallow(<StationPoint {...props} hasArrived={true} hasDeparted={true} />);
 			expect(stationPoint.find('.station-point').hasClass('station-point--current')).toBe(false);
 			expect(stationPoint.find('.station-point').hasClass('station-point--departed')).toBe(true);
 		})
 
 		it('should highlight the departure station', () => {
-			stationPoint = mount(<StationPoint {...props}  stationCode="LCG" from='LCG'/>);
+			stationPoint = shallow(<StationPoint {...props}  stationCode="LCG" from='LCG'/>);
 			expect(stationPoint.find('.station-point').hasClass('station-point--from')).toBe(true);
-			stationPoint = mount(<StationPoint {...props}  stationCode="WAT" from='LCG'/>);
+			stationPoint = shallow(<StationPoint {...props}  stationCode="WAT" from='LCG'/>);
 			expect(stationPoint.find('.station-point').hasClass('station-point--from')).toBe(false);
 		})
 
 		it('should highlight origin and destination', () => {
 
-			stationPoint = mount(<StationPoint {...props}  isOrigin={true} isDestination={false} />);
+			stationPoint = shallow(<StationPoint {...props}  isOrigin={true} isDestination={false} />);
 			expect(stationPoint.find('.station-point__circle').hasClass('station-point__circle--black')).toBe(true);
 
-			stationPoint = mount(<StationPoint {...props} isOrigin={false}  isDestination={true} />);
+			stationPoint = shallow(<StationPoint {...props} isOrigin={false}  isDestination={true} />);
 			expect(stationPoint.find('.station-point__circle').hasClass('station-point__circle--black')).toBe(true);
 		})
 

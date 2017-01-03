@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import {ServiceDetails} from  './ServiceDetails';
 import StationList from  '../components/ServiceDetails/StationList';
 import React from 'react';
@@ -28,14 +28,14 @@ describe('Containers', () => {
 		})
 
 		it('should render StationList when data is available', () => {
-			serviceDetails = mount(
+			serviceDetails = shallow(
 				<ServiceDetails {...props} />
 			);
 			expect(serviceDetails.find(StationList).length).toBe(1)
 		})
 
 		it('should show spinner when loading', () => {
-			serviceDetails = mount(
+			serviceDetails = shallow(
 				<ServiceDetails {...props} showSpinner={true} />
 			);
 
@@ -44,7 +44,7 @@ describe('Containers', () => {
 
 		it('Should manage errors', () => {
 
-			serviceDetails = mount(
+			serviceDetails = shallow(
 				<ServiceDetails {...props} error={true} errorMessage="Error Message" />
 			);
 

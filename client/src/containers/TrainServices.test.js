@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import {TrainServices} from  './TrainServices';
 import ServiceList from  '../components/TrainServices/ServiceList';
 import React from 'react';
@@ -29,14 +29,14 @@ describe('Containers', () => {
 		})
 
 		it('should render ServiceList when data is available', () => {
-			trainServices = mount(
+			trainServices = shallow(
 				<TrainServices {...props} data={departuresMock} />
 			);
 			expect(trainServices.find(ServiceList).length).toBe(1)
 		})
 
 		it('should show spinner when loading', () => {
-			trainServices = mount(
+			trainServices = shallow(
 				<TrainServices {...props} showSpinner={true} />
 			);
 
@@ -45,7 +45,7 @@ describe('Containers', () => {
 
 		it('Should manage errors', () => {
 
-			trainServices = mount(
+			trainServices = shallow(
 				<TrainServices {...props} error={true} errorMessage="Error Message" />
 			);
 

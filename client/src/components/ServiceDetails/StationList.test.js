@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import StationList from  './StationList';
 import StationPoint from  './StationPoint';
 import ListHeader from  './ListHeader';
@@ -19,7 +19,7 @@ describe('Components', () => {
 			}
 		}
 
-		let stationsList = mount(<StationList {...props} />);
+		let stationsList = shallow(<StationList {...props} />);
 		
 		it('should render without crashing', () => {
 			expect(stationsList.length).toBe(1);
