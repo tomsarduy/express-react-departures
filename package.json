@@ -5,7 +5,8 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon ./bin/www",
-    "client": "cd client && npm start"
+    "client": "cd client && npm start",
+    "test": "cd client && npm test"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
