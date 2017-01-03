@@ -7,8 +7,9 @@ const formatTime = (date) => {
 	if(!date){
 		return '-';
 	}
-	var mins = ('0'+date.getMinutes()).slice(-2);
-	return `${date.getUTCHours()}:${mins}`;
+	var mins =  ('0'+date.getMinutes()).slice(-2);
+	var hours = ('0'+date.getUTCHours()).slice(-2);
+	return `${hours}:${mins}`;
 }
 
 const getScheduledTime = (stop) => {
