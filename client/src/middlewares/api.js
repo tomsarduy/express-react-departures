@@ -1,6 +1,7 @@
 import * as actionTypes from '../constants/actionTypes';
 import {CALL_API} from 'redux-api-middleware';
 
+// Fetch departures from a given station
 export const fetchService = (serviceId, date, reload=false) => {
 
 	let fetchType = actionTypes.FETCH_SERVICE;
@@ -27,6 +28,10 @@ export const fetchService = (serviceId, date, reload=false) => {
 // Fetch departures from a given station
 export const fetchDepartures = (from, reload=false) => {
 
+	if(!from){
+		return;
+	}
+	
 	let fetchType = actionTypes.FETCH_DEPARTURES;
 
 	// Dispatch reload if it's just updating the current view
@@ -51,11 +56,12 @@ export const fetchDepartures = (from, reload=false) => {
 	}
 }
 
-export const LoadStations = () => {
+// Fetch train stations list
+export const fetchStations = () => {
 
 	return {
 		[CALL_API]: {
-			endpoint: `/api/departures`,
+			endpoint: '/api/departures',
 			method: 'GET',
 			types: [
 				actionTypes.FETCH_STATIONS,

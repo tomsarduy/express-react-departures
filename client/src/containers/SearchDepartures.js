@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import DepartureSelect from '../components/DepartureSelect/DepartureSelect';
 import ErrorMessage from '../components/Error/ErrorMessage';
-import {LoadStations} from '../middlewares/api';
+import {fetchStations} from '../middlewares/api';
 import {selectStation} from '../actions';
 import {connect} from 'react-redux';
 
@@ -19,7 +19,7 @@ const mapStateToProps = (state, props) => {
 export class SearchDepartures extends Component {
 
 	componentDidMount() {
-		this.props.LoadStations();
+		this.props.fetchStations();
 	}
 
 	render() {
@@ -38,7 +38,7 @@ export class SearchDepartures extends Component {
 
 
 SearchDepartures.propTypes = {
-  LoadStations: React.PropTypes.func.isRequired,
+  fetchStations: React.PropTypes.func.isRequired,
   stations: React.PropTypes.array,
   showSpinner: React.PropTypes.bool,
   error: React.PropTypes.bool,
@@ -48,7 +48,7 @@ SearchDepartures.propTypes = {
 export default connect(
 	mapStateToProps,
 	{
-		LoadStations,
+		fetchStations,
 		selectStation
 	}
 )(SearchDepartures);

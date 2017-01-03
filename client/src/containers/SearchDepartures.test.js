@@ -6,7 +6,7 @@ describe('Containers', () => {
 	describe('<SearchDepartures/>', () => {
 
 		const props = {
-			LoadStations: jest.fn()
+			fetchStations: jest.fn()
 		}
 
 		let searchDepartures = mount(
@@ -19,7 +19,7 @@ describe('Containers', () => {
 		})
 
 		it('should load stations when did mount', () => {
-			expect(props.LoadStations.mock.calls.length).toBe(1)
+			expect(props.fetchStations.mock.calls.length).toBe(1)
 		})
 
 		it('should show spinner when loading', () => {
